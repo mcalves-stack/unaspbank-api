@@ -1,0 +1,54 @@
+
+###
+
+# @name create-user
+POST http://localhost:3333/user
+Content-Type: application/json
+
+{
+  "ra": 123456,
+  "cpf": "12345678901",
+  "phoneNumber": "11987654321",
+  "email": "joao.silva@example.com",
+  "password": "senhaSegura123",
+  "dateOfBirth": "01011990"
+}
+
+### Login de usuário
+POST http://localhost:3333/auth
+Content-Type: application/json
+
+{
+  "email": "joao.silva@example.com",
+  "password": "senhaSegura123"
+}
+
+
+###
+
+# @name create-img
+### Upload de foto de perfil
+POST http://localhost:3333/upload-photo
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="userId"
+
+8c148cbb-d7b7-46b1-af11-aa13acbfb3bc
+--boundary
+Content-Disposition: form-data; name="photo"; filename="foto.jpg"
+Content-Type: image/jpeg
+
+< E:\idiea.jpg
+--boundary--
+
+###
+
+# @name create-income
+POST http://localhost:3333/income
+Content-Type: application/json
+
+{
+  "monthlyIncome": 5000.50,
+  "familyIncome": 10000.75
+}
